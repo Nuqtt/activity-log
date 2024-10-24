@@ -32,7 +32,6 @@ jobs:
           git config --global user.email '165500357+Nuqtt@users.noreply.github.com'
           git commit -am "dist build"
           git push
-
   test:
     runs-on: ubuntu-latest
     # needs: build
@@ -52,7 +51,7 @@ jobs:
           INPUT_COMMIT_MESSAGE: Update README.md
           INPUT_EVENT_LIMIT: '100'
         run: node ./dist/index.js
-
+  
   release:
     runs-on: ubuntu-latest
     needs: build
