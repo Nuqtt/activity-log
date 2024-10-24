@@ -32424,13 +32424,13 @@ module.exports = parseParams
 var __webpack_exports__ = {};
 const { fetchAndFilterEvents } = __nccwpck_require__(8942);
 const { updateReadme } = __nccwpck_require__(695);
-const { username, token, eventLimit, ignoreEvents, readmePath, commitMessage } = __nccwpck_require__(8793);
+const { username, token, eventLimit, targetRepos, ignoreEvents, readmePath, commitMessage } = __nccwpck_require__(8793);
 const core = __nccwpck_require__(6026)
 
 // Main function to execute the update process
 async function main() {
     try {
-        const activity = await fetchAndFilterEvents({ username, token, eventLimit, ignoreEvents });
+        const activity = await fetchAndFilterEvents({ username, token, eventLimit, targetRepos, ignoreEvents });
         await updateReadme(activity, readmePath);
     } catch (error) {
         core.setFailed(`❌ Error in the update process: ${error.message}`);
